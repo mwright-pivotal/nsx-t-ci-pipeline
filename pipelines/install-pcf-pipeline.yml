@@ -188,13 +188,13 @@ resources:
 - name: pcf-pipelines
   type: git
   source:
-    uri: https://github.com/pivotal-cf/pcf-pipelines.git
+    uri: https://github.com/mwright-pivotal/pcf-pipelines.git
     branch: master
 
 - name: nsx-t-ci-pipeline
   type: git
   source:
-    uri: https://github.com/sparameswaran/nsx-t-ci-pipeline.git
+    uri: https://github.com/mwright-pivotal/nsx-t-ci-pipeline.git
     branch: master
 
 - name: pcf-ops-manager

@@ -55,8 +55,8 @@ pks_config_params: &pks-config-params
   PKS_NW_AZS: ((pks_tile_nw_azs))
   PKS_DEPLOYMENT_NETWORK_NAME: ((pks_tile_deployment_network_name))
   PKS_CLUSTER_SERVICE_NETWORK_NAME: ((pks_tile_cluster_service_network_name))
-  PKS_SSL_CERT: ((pks_tile_cert_pem))
-  PKS_SSL_PRIVATE_KEY: ((pks_tile_private_key_pem))
+  PKS_SSL_CERT: ((poe_ssl_cert1))
+  PKS_SSL_PRIVATE_KEY: ((poe_ssl_key1))
   PKS_SYSTEM_DOMAIN: ((pks_tile_system_domain))
   PKS_UAA_DOMAIN_PREFIX: ((pks_tile_uaa_domain_prefix))
   NSX_API_MANAGER: ((nsx_address))
@@ -168,13 +168,13 @@ resources:
 - name: pcf-pipelines
   type: git
   source:
-    uri: https://github.com/pivotal-cf/pcf-pipelines.git
+    uri: https://github.com/mwright-pivotal/pcf-pipelines.git
     branch: master
 
 - name: nsx-t-ci-pipeline
   type: git
   source:
-    uri: https://github.com/sparameswaran/nsx-t-ci-pipeline.git
+    uri: https://github.com/mwright-pivotal/nsx-t-ci-pipeline.git
     branch: master
 
 - name: pcf-ops-manager
@@ -501,7 +501,7 @@ jobs:
       trigger: true
 
   - task: validate-nsx-config-for-pks
-    file: nsx-t-ci-pipeline/tasks/validate-nsx-t-for-pks/task.yml
+    file: nsx-t-ci-pipeline/tasks/validate-nsx-t-for-pks/task-no-nsx.yml
     params:
       NSX_API_MANAGER: ((nsx_address))
       NSX_API_USER: ((nsx_username))
